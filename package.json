@@ -16,7 +16,7 @@
 	"main": "server/index.js",
 	"name": "liferay-e2e",
 	"scripts": {
-		"start": "npx cypress open",
+		"start": "npx cypress run",
 		"test": "node test",
 		"dev": "nodemon server/index.js"
 	},
