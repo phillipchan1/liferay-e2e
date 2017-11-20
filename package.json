@@ -1,0 +1,24 @@
+{
+	"author": "",
+	"dependencies": {
+		"body-parser": "^1.15.2",
+		"express": "^4.14.0"
+	},
+	"devDependencies": {
+		"chai": "^3.5.0",
+		"cypress": "^1.1.0",
+		"gulp": "^3.9.1",
+		"gulp-mocha": "^3.0.1",
+		"mocha": "^3.2.0"
+	},
+	"description": "liferay-e2e",
+	"license": "ISC",
+	"main": "server/index.js",
+	"name": "liferay-e2e",
+	"scripts": {
+		"start": "npx cypress open",
+		"test": "node test",
+		"dev": "nodemon server/index.js"
+	},
+	"version": "1.0.1"
+}
