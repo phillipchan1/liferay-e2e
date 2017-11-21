@@ -24,3 +24,18 @@ jobs:
       - run:
           name: Running E2E tests with JUnit reporter
           command: npm run test
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - test
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - coverage
