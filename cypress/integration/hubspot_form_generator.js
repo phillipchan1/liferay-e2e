@@ -1,5 +1,5 @@
-describe('random tests', function() {
-	it('should be true', function() {
+describe('Form UI Works for Filling out Form', function() {
+	it('Show the thank you page upon finishing filling out the form', function() {
 		cy.visit('http://www.liferay.com/request-a-demo');
 
 		cy.get('#article244788_firstname input').type('TEST FIRST NAME');

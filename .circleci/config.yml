@@ -22,7 +22,7 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Running E2E tests with JUnit reporter
+          name: Running lrdcom e2e tests
           command: npm run test
 workflows:
   version: 2
