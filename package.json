@@ -18,7 +18,7 @@
 	"name": "liferay-e2e",
 	"scripts": {
 		"start": "node server/index.js",
-		"test": "node test",
+		"test": "./node_modules/.bin/cypress run",
 		"dev": "nodemon server/index.js"
 	},
 	"version": "1.0.1"
