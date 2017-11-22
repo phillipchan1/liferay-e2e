@@ -1,5 +1,12 @@
+describe('There is a form on the page', function() {
+	it('the form should be there', function() {
+		cy.visit('http://www.liferay.com/request-a-demo');
+		cy.get('.lrdcom-form').should.exist;
+	});
+});
+
 describe('Form UI Works for Filling out Form', function() {
-	it('Show the thank you page upon finishing filling out the form', function() {
+	it('should show the thank you page upon finishing filling out the form', function() {
 		cy.visit('http://www.liferay.com/request-a-demo');
 
 		cy.get('#article244788_firstname input').type('TEST FIRST NAME');
