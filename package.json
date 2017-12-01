@@ -6,11 +6,19 @@
 		"node-cmd": "^3.0.0"
 	},
 	"devDependencies": {
+		"babel-eslint": "^8.0.1",
 		"chai": "^3.5.0",
 		"cypress": "^1.1.0",
+		"eslint": "^4.10.0",
+		"eslint-config-prettier": "^2.6.0",
+		"eslint-plugin-prettier": "^2.3.1",
 		"gulp": "^3.9.1",
 		"gulp-mocha": "^3.0.1",
-		"mocha": "^3.2.0"
+		"mocha": "^3.2.0",
+		"husky": "^0.14.3",
+		"lint-staged": "^4.3.0",
+		"prettier": "^1.7.4",
+		"prettier-eslint-cli": "^4.4.0"
 	},
 	"description": "liferay-e2e",
 	"license": "ISC",
@@ -19,7 +27,17 @@
 	"scripts": {
 		"start": "node server/index.js",
 		"test": "./node_modules/.bin/cypress run",
-		"dev": "nodemon server/index.js"
+		"dev": "nodemon server/index.js",
+		"format":
+			"prettier-eslint --write \"cypress/**/*.js\" \"server/**/*.js\"",
+		"lint-staged": "lint-staged",
+		"precommit": "lint-staged"
+	},
+	"lint-staged": {
+		"*.{js,json,css}": [
+			"prettier-eslint --write --config .prettierrc --eslint-config-path .eslintrc ",
+			"git add"
+		]
 	},
 	"version": "1.0.1"
 }
