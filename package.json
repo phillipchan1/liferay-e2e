@@ -26,7 +26,8 @@
 	"name": "liferay-e2e",
 	"scripts": {
 		"start": "node server/index.js",
-		"test": "./node_modules/.bin/cypress run",
+		"open": "npx cypress open",
+		"test": "cypress run",
 		"dev": "nodemon server/index.js",
 		"format":
 			"prettier-eslint --write \"cypress/**/*.js\" \"server/**/*.js\"",
