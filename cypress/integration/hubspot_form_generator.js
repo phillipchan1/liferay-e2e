@@ -18,6 +18,6 @@ describe("Filling out the form correctly should lead to thank you page", functio
     cy.get("#article244788_country select").select("United States"); // Select the 'user-1' option
 
     cy.get(".lrdcom-form").submit();
-    cy.url().should("include", "thank-you");
+    cy.url().should("include", "gibersrih");
   });
 });
