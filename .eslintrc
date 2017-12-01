@@ -15,6 +15,7 @@
 		"cy": true,
 		"document": true,
 		"describe": true,
+		"expect": true,
 		"it": true,
 		"module": true,
 		"process": true,
