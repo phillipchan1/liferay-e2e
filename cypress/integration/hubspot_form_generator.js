@@ -72,7 +72,7 @@ describe('User contact is updated on hubspot', function() {
 		const apiKey = Cypress.env('HUBSPOT_API_KEY')
 		const baseUrl = 'https://api.hubapi.com/contacts/v1/contact/vid'
 		const url = `${baseUrl}/${user.id}/profile?hapikey=${apiKey}`
-
+		console.log('check if api key exists', HUBSPOT_API_KEY, process.env)
 		cy.request(url).then(function(response) {
 			expect(response.body.properties.firstname.value).to.equal('test2')
 		})
