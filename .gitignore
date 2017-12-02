@@ -1,3 +1,4 @@
 node_modules/
 videos/
 npm-debug.log
+cypress.env.json

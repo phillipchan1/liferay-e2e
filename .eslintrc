@@ -13,6 +13,7 @@
 	"globals": {
 		"__dirname": true,
 		"cy": true,
+		"Cypress": true,
 		"document": true,
 		"describe": true,
 		"expect": true,

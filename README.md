@@ -5,6 +5,7 @@
 * [Running Cypress Tests](#running-cypress-tests)
 * [Linting &amp; Formatting](#linting-and-formatting)
 * [es6](#es6-features)
+* [Api Keys](#api-keys)
 
 ## Running Cypress Tests
 
@@ -49,3 +50,13 @@ npm run open
 
 * You can use es6 in the `cypress folder` as it uses a babel plugin by default to transpile es6 into es5 code
 * In `the server folder`, you can also use most es6 features besides `import package from 'package'` if you have a **node version > 6.11.4**
+
+## Api Keys
+
+* We are using `Cypress.env()` to keep api keys safe using a `cypress.env.json` file in the root dir
+	* You will need to add your own `cypress.env.json` which has the following shape:
+
+```
+HUBSPOT_API_KEY=3423-234234...
+HUBSPOT_USER_ID=465...
+```
