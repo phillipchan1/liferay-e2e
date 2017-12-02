@@ -22,8 +22,8 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Running lrdcom e2e tests
-          command: npm run test
+          name: Running and record lrdcom e2e tests
+          command: npm run record
 workflows:
   version: 2
   commit-workflow:
