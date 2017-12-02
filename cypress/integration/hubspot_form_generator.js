@@ -44,3 +44,37 @@ describe('Form with gated resource', function() {
 		})
 	})
 })
+
+describe('Checks that Hubspot forms API is up and running', function() {
+	it('should return status of 200', function() {
+		const baseUrl = 'https://forms.hubspot.com/uploads/form/v2'
+		const portalId = Cypress.env('HUBSPOT_PORTAL_ID')
+		const formId = user.testFormId
+
+		cy
+			.request({
+				method: 'POST',
+				url: `${baseUrl}/${portalId}/${formId}`,
+				form: true,
+				body: {
+					email: user.email,
+					firstname: 'test2',
+				},
+			})
+			.then(function(response) {
+				expect(response.status).to.equal(200)
+			})
+	})
+})
+
+describe('User contact is updated on hubspot', function() {
+	it('should show user has submitted new form', function() {
+		const apiKey = Cypress.env('HUBSPOT_API_KEY')
+		const baseUrl = 'https://api.hubapi.com/contacts/v1/contact/vid'
+		const url = `${baseUrl}/${user.id}/profile?hapikey=${apiKey}`
+
+		cy.request(url).then(function(response) {
+			expect(response.body.properties.firstname.value).to.equal('test2')
+		})
+	})
+})
