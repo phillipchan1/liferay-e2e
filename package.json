@@ -2,6 +2,7 @@
 	"author": "",
 	"dependencies": {
 		"body-parser": "^1.15.2",
+		"cross-env": "^5.1.1",
 		"express": "^4.14.0",
 		"node-cmd": "^3.0.0"
 	},
@@ -28,7 +29,7 @@
 		"open": "npx cypress open",
 		"record":
 			"cypress run --record --key 069d6d8e-8b92-4734-b15e-b414c9005fca",
-		"start": "node server/index.js",
+		"start": "cross-env PORT=3000 node server/index.js",
 		"test": "cypress run",
 		"dev": "nodemon server/index.js",
 		"format":
