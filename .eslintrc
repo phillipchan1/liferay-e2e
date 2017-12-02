@@ -19,6 +19,7 @@
 		"it": true,
 		"module": true,
 		"process": true,
+		"require": true,
 		"window": true
 	},
 	"rules": {

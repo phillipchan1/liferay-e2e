@@ -2,6 +2,10 @@
 
 > End-to-End tests for Liferay.com
 
+* [Running Cypress Tests](#running-cypress-tests)
+* [Linting &amp; Formatting](#linting-and-formatting)
+* [es6](#es6-features)
+
 ## Running Cypress Tests
 
 * Install **node dependecies** by running
@@ -22,7 +26,7 @@ npm run open
 npm run open
 ```
 
-## Linting & Formatting
+## Linting and Formatting
 
 * To apply **general auto formatting for all files**, please install the `editorconfig` plugin for your text editor
 
@@ -40,3 +44,8 @@ npm run open
 
 * Otherwise your code will be linted + auto fixed **when you make a commit**
 	* It will usually correct all code formatting, but if it fails, you will have to fix those errors before you can successfully commit
+
+## es6 Features
+
+* You can use es6 in the `cypress folder` as it uses a babel plugin by default to transpile es6 into es5 code
+* In `the server folder`, you can also use most es6 features besides `import package from 'package'` if you have a **node version > 6.11.4**
