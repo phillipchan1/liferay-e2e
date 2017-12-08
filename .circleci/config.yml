@@ -28,7 +28,7 @@ workflows:
   version: 2
   commit-workflow:
     jobs:
-      - build:
+      - build
         context: org-global
   nightly:
     triggers:
@@ -39,5 +39,5 @@ workflows:
               only:
                 - master
     jobs:
-      - build:
+      - build
         context: org-global
