@@ -13,14 +13,16 @@ describe('Filling out the form correctly should lead to thank you page', functio
 	it('should show the thank you page upon finishing filling out the form', function() {
 		cy.visit('http://www.liferay.com/request-a-demo')
 
-		cy.get('input[name=firstname]').type(user.firstName)
-		cy.get('input[name=lastname]').type(user.lastName)
-		cy.get('input[name=email]').type(user.email)
-		cy.get('input[name=phone]').type(user.phone)
-		cy.get('input[name=company]').type(user.company)
-		cy.get('select[name=country]').select(user.country)
+		const selector = '#article244788fm '
 
-		cy.get('.lrdcom-form').submit()
+		cy.get(selector + 'input[name=firstname]').type(user.firstName)
+		cy.get(selector + 'input[name=lastname]').type(user.lastName)
+		cy.get(selector + 'input[name=email]').type(user.email)
+		cy.get(selector + 'input[name=phone]').type(user.phone)
+		cy.get(selector + 'input[name=company]').type(user.company)
+		cy.get(selector + 'select[name=country]').select(user.country)
+
+		cy.get(selector).submit()
 		cy.url().should('include', 'thank-you')
 	})
 })
