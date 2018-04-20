@@ -1,3 +1,4 @@
 {
-	"projectId": "km877b"
+	"projectId": "km877b",
+	"requestTimeout": 10000
 }
