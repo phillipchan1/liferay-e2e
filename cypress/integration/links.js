@@ -1,6 +1,6 @@
 var exceptions = ['javascript', 'struts_action', 'tel:', 'linkedin']
 
-describe('cyle through pages', function() {
+describe('cyle through pages to check for broken links', function() {
 	var allLinks = {}
 	var pages = []
 
