@@ -2,7 +2,7 @@ describe('cyle through pages on navigation and check for JS errors', function() 
 	var pages = []
 
 	before(function() {
-		cy.visit('http://www-nightly.liferay.com')
+		cy.visit('http://www.liferay.com')
 		cy.get('nav.primary-nav a').then(anchors => {
 			return new Cypress.Promise((resolve, reject) => {
 				for (var prop in anchors) {
