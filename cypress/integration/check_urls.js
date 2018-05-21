@@ -2,67 +2,63 @@ const baseUrl = 'https://www-uat.liferay.com'
 
 const locales = [
 	'',
-	'/de',
-	'/en',
-	'/en_US',
-	'/en_AU',
-	'/es',
-	'/fr',
-	'/it',
-	'/ja',
-	'/pt',
-	'/zh',
+	// '/de',
+	// '/en',
+	// '/en_US',
+	// '/en_AU',
+	// '/es',
+	// '/fr',
+	// '/it',
+	// '/ja',
+	// '/pt',
+	// '/zh',
 ]
 
 import urls from '../fixtures/redirects.json'
 
-var request = function(url) {
+var results = { urls: [] }
+
+var request = function(url, ogRequestUrl, requestCount) {
 	cy
 		.request({
 			url: url,
 			followRedirect: false,
 		})
 		.then(response => {
+			var curRequestUrl = response.redirectedToUrl || url
 			requestCount++
-			curRequestUrl = response.redirectedToUrl || url
+
+			if (!results[response.status]) {
+				results[response.status] = []
+			}
+
+			results[response.status].push(url)
 
 			if (response.status == '301' || response.status == '302') {
-				request(response.redirectedToUrl)
+				request(response.redirectedToUrl, ogRequestUrl, requestCount)
 			} else {
-				results[ogRequestUrl] = {
+				results['urls'].push({
+					startUrl: ogRequestUrl,
 					endUrl: curRequestUrl,
 					requestCount: requestCount,
 					responseStatus: response.status,
-				}
-
-				if (!results[response.status]) {
-					results[response.status] = []
-				}
-
-				results[response.status].push(ogRequestUrl)
+				})
 			}
 		})
 }
 
-var requestCount = 0
-var curRequestUrl = ''
-var ogRequestUrl = ''
-var results = {}
-
 var initRequest = function(url) {
-	it('Request ' + url, function() {
-		requestCount = 0
-		curRequestUrl = ''
+	var ogRequestUrl = url
+	var requestCount = 0
 
-		request(url)
+	it('Request ' + url, function() {
+		request(url, ogRequestUrl, requestCount)
 	})
 }
 
 urls.forEach(function(url) {
 	describe('Check ' + url, function() {
 		if (url.startsWith('http')) {
-			ogRequestUrl = url
-
 			initRequest(url)
 
 			return
@@ -70,8 +66,6 @@ urls.forEach(function(url) {
 
 		locales.forEach(function(locale) {
 			let localizedUrl = baseUrl + locale + url
-
-			ogRequestUrl = localizedUrl
 
 			initRequest(localizedUrl)
 		})
